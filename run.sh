@@ -19,7 +19,9 @@ torchrun \
   --learning_rate=0.0006 \
   --val_loss_every=256 \
   --val_max_steps=64 \
-  --overfit_single_batch=0 
+  --overfit_single_batch=0 \
+  2>&1 \
+  |tee train.log 
 
 
 <<\c
