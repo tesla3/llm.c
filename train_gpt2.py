@@ -256,8 +256,9 @@ class GPT(nn.Module):
         print0(f"num decayed parameter tensors: {len(decay_params)}, with {num_decay_params:,} parameters")
         print0(f"num non-decayed parameter tensors: {len(nodecay_params)}, with {num_nodecay_params:,} parameters")
         # Create AdamW optimizer and use the fused version if it is available
+
         fused_available = 'fused' in inspect.signature(torch.optim.AdamW).parameters
-        use_fused = fused_available and device_type == 'cuda'
+        use_fused = fused_available and 'cuda' in device_type
         print0(f"using fused AdamW: {use_fused}")
         if zero_stage == 1:
             print0("using ZeroRedundancyOptimizer")
