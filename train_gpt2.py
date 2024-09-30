@@ -295,7 +295,7 @@ if __name__ == "__main__":
     # init the optimizer
     optimizer = raw_model.configure_optimizers(weight_decay=args.weight_decay,
                                                learning_rate=args.learning_rate, betas=(0.9, 0.95),
-                                               device_type=device, zero_stage=zero_stage)
+                                               device_type=device_type, zero_stage=zero_stage)
 
     # learning rate decay scheduler (cosine with warmup)
     def get_lr(it):

@@ -232,7 +232,7 @@ class GPT(nn.Module):
         # Create AdamW optimizer and use the fused version if it is available
 
         fused_available = 'fused' in inspect.signature(torch.optim.AdamW).parameters
-        use_fused = fused_available and 'cuda' in device_type
+        use_fused = fused_available and device_type == 'cuda'
         print0(f"using fused AdamW: {use_fused}")
         if zero_stage == 1:
             print0("using ZeroRedundancyOptimizer")
