@@ -51,7 +51,7 @@ def _peek_data_shard(filename):
         exit(1)
     assert header[1] == 1, "unsupported version"
     ntok = header[2] # number of tokens (claimed)
-    return ntok # for now just return the number of tokens
+    return int(ntok) # for now just return the number of tokens
 
 def _load_data_shard(filename):
     with open(filename, "rb") as f:
