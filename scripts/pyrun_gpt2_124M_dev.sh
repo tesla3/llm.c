@@ -4,7 +4,8 @@
 
 # if you wish to train on just a single GPU, simply skip the torchrun part, i.e.
 # python train_gpt2.py ... (all the other arguments the same)
-torchrun --standalone --nproc_per_node=8 train_gpt2.py \
+#torchrun --standalone --nproc_per_node=8 train_gpt2.py \
+python train_gpt2.py \
     --input_bin "dev/data/fineweb100B/fineweb_train_*.bin" \
     --input_val_bin "dev/data/fineweb100B/fineweb_val_*.bin" \
     --output_dir pylog_gpt2_124M \
@@ -12,7 +13,7 @@ torchrun --standalone --nproc_per_node=8 train_gpt2.py \
     --sample_every 0 \
     --write_tensors 0 \
     --model d12 \
-    --batch_size 32 \
+    --batch_size 16 \
     --sequence_length 1024 \
     --total_batch_size 524288 \
     --dtype bfloat16 \
